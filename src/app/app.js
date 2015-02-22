@@ -5,14 +5,14 @@
 var React = require('react'),
     ExampleApp;
 
+var Stop = require('./components/stop.jsx');
+
 ExampleApp = React.createClass({
     render: function() {
         return (
         	/*jshint ignore:start */
-            <div>
-            	<h2>Hello, World</h2>
-            </div>
-            /*jshint ignore:end */
+            <Stop />
+          /*jshint ignore:end */
         );
     }
 });
