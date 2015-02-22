@@ -11,9 +11,22 @@ var Stop = React.createClass({
       "stopNumber": "0190",
       "arrivingBuses": [
         {
-          "destination": "WOOD & CHURCH",
+          "key": "1",
+          "destination": "Wood & Church",
           "route": "1",
           "timeToArrival": "17"
+        },
+        {
+          "key": "2",
+          "destination": "Wood & Church",
+          "route": "1",
+          "timeToArrival": "32"
+        },
+        {
+          "key": "3",
+          "destination": "Wood & Church",
+          "route": "1",
+          "timeToArrival": "50"
         },
       ]
     }
@@ -23,6 +36,7 @@ var Stop = React.createClass({
   //   return {data: []}
   // },
   render: function() {
+    var arrivingBuses = this.state.arrivingBuses;
     return (
       /*jshint ignore:start */
       <section className="stop">
@@ -40,7 +54,12 @@ var Stop = React.createClass({
           </ul>
         </section>
 
-        <Transport />
+        <ul>
+          {arrivingBuses.map(function(bus) {
+            // return <li key={bus.key}>{bus.destination}</li>;
+            return <Transport key={bus.key} data={bus}/>
+          })}
+        </ul>
 
      </section>
      /*jshint ignore:end */

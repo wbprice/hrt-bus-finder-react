@@ -18599,9 +18599,22 @@ var Stop = React.createClass({displayName: "Stop",
       "stopNumber": "0190",
       "arrivingBuses": [
         {
-          "destination": "WOOD & CHURCH",
+          "key": "1",
+          "destination": "Wood & Church",
           "route": "1",
           "timeToArrival": "17"
+        },
+        {
+          "key": "2",
+          "destination": "Wood & Church",
+          "route": "1",
+          "timeToArrival": "32"
+        },
+        {
+          "key": "3",
+          "destination": "Wood & Church",
+          "route": "1",
+          "timeToArrival": "50"
         },
       ]
     }
@@ -18611,6 +18624,7 @@ var Stop = React.createClass({displayName: "Stop",
   //   return {data: []}
   // },
   render: function() {
+    var arrivingBuses = this.state.arrivingBuses;
     return (
       /*jshint ignore:start */
       React.createElement("section", {className: "stop"}, 
@@ -18628,7 +18642,12 @@ var Stop = React.createClass({displayName: "Stop",
           )
         ), 
 
-        React.createElement(Transport, null)
+        React.createElement("ul", null, 
+          arrivingBuses.map(function(bus) {
+            // return <li key={bus.key}>{bus.destination}</li>;
+            return React.createElement(Transport, {key: bus.key, data: bus})
+          })
+        )
 
      )
      /*jshint ignore:end */
@@ -18644,21 +18663,23 @@ module.exports = Stop;
 var React = require('React');
 
 var Transport = React.createClass({displayName: "Transport",
-  getInitialState: function() {
-    return {
-      "destination": "WOOD & CHURCH",
-      "route": "1",
-      "timeToArrival": "17"
-    };
-  },
+  // getInitialState: function() {
+  //   return {
+  //     "destination": "WOOD & CHURCH",
+  //     "route": "1",
+  //     "timeToArrival": "17"
+  //   };
+  // },
   render: function() {
+    debugger;
+    var data = this.props.data;
     return (
       /*jshint ignore:start */
-      React.createElement("section", {className: "vehicle"}, 
+      React.createElement("li", {className: "vehicle"}, 
         React.createElement("ul", null, 
-          React.createElement("li", {className: "route"}, this.state.route), 
-          React.createElement("li", {className: "destination"}, this.state.destination), 
-          React.createElement("li", {className: "timeToArrival"}, this.state.timeToArrival)
+          React.createElement("li", {className: "route"}, data.route), 
+          React.createElement("li", {className: "destination"}, data.destination), 
+          React.createElement("li", {className: "timeToArrival"}, data.timeToArrival)
         )
       )
       /*jshint ignore:end */

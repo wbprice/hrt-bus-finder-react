@@ -3,23 +3,25 @@
 var React = require('React');
 
 var Transport = React.createClass({
-  getInitialState: function() {
-    return {
-      "destination": "WOOD & CHURCH",
-      "route": "1",
-      "timeToArrival": "17"
-    };
-  },
+  // getInitialState: function() {
+  //   return {
+  //     "destination": "WOOD & CHURCH",
+  //     "route": "1",
+  //     "timeToArrival": "17"
+  //   };
+  // },
   render: function() {
+    debugger;
+    var data = this.props.data;
     return (
       /*jshint ignore:start */
-      <section className="vehicle">
+      <li className="vehicle">
         <ul>
-          <li className="route">{this.state.route}</li>
-          <li className="destination">{this.state.destination}</li>
-          <li className="timeToArrival">{this.state.timeToArrival}</li>
+          <li className="route">{data.route}</li>
+          <li className="destination">{data.destination}</li>
+          <li className="timeToArrival">{data.timeToArrival}</li>
         </ul>
-      </section>
+      </li>
       /*jshint ignore:end */
     );
   }
