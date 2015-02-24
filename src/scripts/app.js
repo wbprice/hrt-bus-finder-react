@@ -18619,32 +18619,27 @@ var Stop = React.createClass({displayName: "Stop",
       ]
     }
   },
-  // componentDidMount: function() {
-  //   console.log('Component mounted');
-  //   return {data: []}
-  // },
   render: function() {
     var arrivingBuses = this.state.arrivingBuses;
     return (
       /*jshint ignore:start */
-      React.createElement("section", {className: "stop"}, 
+      React.createElement("section", {className: "stop col-sm-12 col-md-4"}, 
 
-        React.createElement("section", {className: "stopName"}, 
+        React.createElement("section", {className: "stopInfo"}, 
           React.createElement("h2", null, this.state.stopName), 
           React.createElement("h3", null, this.state.stopNumber)
         ), 
 
-        React.createElement("section", {className: "key"}, 
+        React.createElement("section", {className: "key row"}, 
           React.createElement("ul", null, 
-            React.createElement("li", null, "Route"), 
-            React.createElement("li", null, "Destination"), 
-            React.createElement("li", null, "Minutes to Arrival")
+            React.createElement("li", {className: "col-sm-3"}, "Route"), 
+            React.createElement("li", {className: "col-sm-6"}, "Destination"), 
+            React.createElement("li", {className: "col-sm-3"}, "Minutes to Arrival")
           )
         ), 
 
-        React.createElement("ul", null, 
+        React.createElement("ul", {className: "transports"}, 
           arrivingBuses.map(function(bus) {
-            // return <li key={bus.key}>{bus.destination}</li>;
             return React.createElement(Transport, {key: bus.key, data: bus})
           })
         )
@@ -18663,23 +18658,15 @@ module.exports = Stop;
 var React = require('React');
 
 var Transport = React.createClass({displayName: "Transport",
-  // getInitialState: function() {
-  //   return {
-  //     "destination": "WOOD & CHURCH",
-  //     "route": "1",
-  //     "timeToArrival": "17"
-  //   };
-  // },
   render: function() {
-    debugger;
     var data = this.props.data;
     return (
       /*jshint ignore:start */
-      React.createElement("li", {className: "vehicle"}, 
-        React.createElement("ul", null, 
-          React.createElement("li", {className: "route"}, data.route), 
-          React.createElement("li", {className: "destination"}, data.destination), 
-          React.createElement("li", {className: "timeToArrival"}, data.timeToArrival)
+      React.createElement("li", {className: "transport"}, 
+        React.createElement("ul", {className: "row"}, 
+          React.createElement("li", {className: "route col-sm-3"}, data.route), 
+          React.createElement("li", {className: "destination col-sm-6"}, data.destination), 
+          React.createElement("li", {className: "timeToArrival col-sm-3"}, data.timeToArrival)
         )
       )
       /*jshint ignore:end */

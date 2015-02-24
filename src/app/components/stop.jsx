@@ -31,32 +31,27 @@ var Stop = React.createClass({
       ]
     }
   },
-  // componentDidMount: function() {
-  //   console.log('Component mounted');
-  //   return {data: []}
-  // },
   render: function() {
     var arrivingBuses = this.state.arrivingBuses;
     return (
       /*jshint ignore:start */
-      <section className="stop">
+      <section className="stop col-sm-12 col-md-4">
 
-        <section className="stopName">
+        <section className="stopInfo">
           <h2>{this.state.stopName}</h2>
           <h3>{this.state.stopNumber}</h3>
         </section>
 
-        <section className="key">
+        <section className="key row">
           <ul>
-            <li>Route</li>
-            <li>Destination</li>
-            <li>Minutes to Arrival</li>
+            <li className="col-sm-3">Route</li>
+            <li className="col-sm-6">Destination</li>
+            <li className="col-sm-3">Minutes to Arrival</li>
           </ul>
         </section>
 
-        <ul>
+        <ul className="transports">
           {arrivingBuses.map(function(bus) {
-            // return <li key={bus.key}>{bus.destination}</li>;
             return <Transport key={bus.key} data={bus}/>
           })}
         </ul>
