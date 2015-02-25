@@ -12,7 +12,7 @@ var Stop = React.createClass({
       "arrivingBuses": [
         {
           "key": "1",
-          "destination": "Wood & Church",
+          "destination": "Wood & Church, a stupid long destination name",
           "route": "1",
           "timeToArrival": "17"
         },
@@ -35,24 +35,27 @@ var Stop = React.createClass({
     var arrivingBuses = this.state.arrivingBuses;
     return (
       /*jshint ignore:start */
-      <section className="stop col-sm-12 col-md-4">
+      <section className="stop pure-u-1">
 
         <section className="stopInfo">
-          <h2>{this.state.stopName}</h2>
+          <h2>{this.state.stopName} <br/><small>(Stop {this.state.stopNumber})</small></h2>
         </section>
 
-        <table className="table">
-          <tr className="key row">
-              <td className="col-sm-3">Route</td>
-              <td className="col-sm-6">Destination</td>
-              <td className="col-sm-3">Minutes to Arrival</td>
-          </tr>
-        </table>
+        <table className="pure-table">
+          <thead className="">
+            <tr className="key ">
+                <th className="route">Route</th>
+                <th className="destination">Destination</th>
+                <th className="timeToArrival">Minutes to Arrival</th>
+            </tr>
+          </thead>
 
-        <table className="table transports">
-          {arrivingBuses.map(function(bus) {
-            return <Transport key={bus.key} data={bus}/>
-          })}
+          <tbody>
+            {arrivingBuses.map(function(bus) {
+              return <Transport key={bus.key} data={bus}/>
+            })}
+          </tbody>
+
         </table>
 
      </section>
