@@ -2,6 +2,8 @@
 
 var gulp = require('gulp'),
     $ = require('gulp-load-plugins')(),
+    sass = require('gulp-sass'),
+    sourcemaps = require('gulp-sourcemaps'),
     connect = $.connectMulti,
     wiredep = require('wiredep').stream,
     devServer = connect(),
@@ -56,7 +58,11 @@ gulp.task('images', function() {
 });
 
 gulp.task('styles', function() {
-    gulp.src('src/assets/styles/*.css')
+    gulp.src('src/assets/styles/scss/*.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass())
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest('src/assets/styles'))
         .pipe(gulp.dest('dist/assets/styles'));
 });
 
