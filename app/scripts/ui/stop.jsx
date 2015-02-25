@@ -39,7 +39,6 @@ var Stop = React.createClass({
 
         <section className="stopInfo">
           <h2>{this.state.stopName}</h2>
-          <h3>{this.state.stopNumber}</h3>
         </section>
 
         <table className="table">
