@@ -128,10 +128,12 @@ gulp.task('watch', ['connect-dev'], function() {
     gulp.watch([
         'src/*.html',
         'src/assets/styles/*.css',
+        'src/assets/styles/scss/*.scss',
         'src/assets/images/*',
         'src/app/*.js',
         'src/app/**/*.js'
     ], function(event) {
+        console.log(event.path);
         return gulp.src(event.path)
                 .pipe(devServer.reload());
     });
@@ -140,7 +142,7 @@ gulp.task('watch', ['connect-dev'], function() {
     gulp.watch('bower.json', ['wiredep']);
 });
 
-gulp.task('development', ['browserify'], function() {
+gulp.task('development', ['browserify', 'styles'], function() {
     gulp.start('watch');
 });
 

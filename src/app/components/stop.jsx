@@ -42,19 +42,19 @@ var Stop = React.createClass({
           <h3>{this.state.stopNumber}</h3>
         </section>
 
-        <section className="key row">
-          <ul>
-            <li className="col-sm-3">Route</li>
-            <li className="col-sm-6">Destination</li>
-            <li className="col-sm-3">Minutes to Arrival</li>
-          </ul>
-        </section>
+        <table className="table">
+          <tr className="key row">
+              <td className="col-sm-3">Route</td>
+              <td className="col-sm-6">Destination</td>
+              <td className="col-sm-3">Minutes to Arrival</td>
+          </tr>
+        </table>
 
-        <ul className="transports">
+        <table className="table transports">
           {arrivingBuses.map(function(bus) {
             return <Transport key={bus.key} data={bus}/>
           })}
-        </ul>
+        </table>
 
      </section>
      /*jshint ignore:end */

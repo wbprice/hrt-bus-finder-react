@@ -7,13 +7,11 @@ var Transport = React.createClass({
     var data = this.props.data;
     return (
       /*jshint ignore:start */
-      <li className="transport">
-        <ul className="row">
-          <li className="route col-sm-3">{data.route}</li>
-          <li className="destination col-sm-6">{data.destination}</li>
-          <li className="timeToArrival col-sm-3">{data.timeToArrival}</li>
-        </ul>
-      </li>
+      <tr className="transport row">
+        <td className="route col-sm-3">{data.route}</td>
+        <td className="destination col-sm-6">{data.destination}</td>
+        <td className="timeToArrival col-sm-3">{data.timeToArrival}</td>
+      </tr>
       /*jshint ignore:end */
     );
   }

@@ -18630,19 +18630,19 @@ var Stop = React.createClass({displayName: "Stop",
           React.createElement("h3", null, this.state.stopNumber)
         ), 
 
-        React.createElement("section", {className: "key row"}, 
-          React.createElement("ul", null, 
-            React.createElement("li", {className: "col-sm-3"}, "Route"), 
-            React.createElement("li", {className: "col-sm-6"}, "Destination"), 
-            React.createElement("li", {className: "col-sm-3"}, "Minutes to Arrival")
-          )
-        ), 
+          React.createElement("table", {className: "table"}, 
+            React.createElement("tr", {className: "key row"}, 
+                React.createElement("td", {className: "col-sm-3"}, "Route"), 
+                React.createElement("td", {className: "col-sm-6"}, "Destination"), 
+                React.createElement("td", {className: "col-sm-3"}, "Minutes to Arrival")
+            )
+          ), 
 
-        React.createElement("ul", {className: "transports"}, 
-          arrivingBuses.map(function(bus) {
-            return React.createElement(Transport, {key: bus.key, data: bus})
-          })
-        )
+          React.createElement("table", {className: "table transports"}, 
+            arrivingBuses.map(function(bus) {
+              return React.createElement(Transport, {key: bus.key, data: bus})
+            })
+          )
 
      )
      /*jshint ignore:end */
@@ -18662,12 +18662,10 @@ var Transport = React.createClass({displayName: "Transport",
     var data = this.props.data;
     return (
       /*jshint ignore:start */
-      React.createElement("li", {className: "transport"}, 
-        React.createElement("ul", {className: "row"}, 
-          React.createElement("li", {className: "route col-sm-3"}, data.route), 
-          React.createElement("li", {className: "destination col-sm-6"}, data.destination), 
-          React.createElement("li", {className: "timeToArrival col-sm-3"}, data.timeToArrival)
-        )
+      React.createElement("tr", {className: "transport row"}, 
+        React.createElement("td", {className: "route col-sm-3"}, data.route), 
+        React.createElement("td", {className: "destination col-sm-6"}, data.destination), 
+        React.createElement("td", {className: "timeToArrival col-sm-3"}, data.timeToArrival)
       )
       /*jshint ignore:end */
     );
